@@ -1,0 +1,38 @@
+vim aws_resource_tracker
+
+#!/bin/bash
+#
+################
+#Author: Avinash Gadhamsetty
+#Date : 5th Nov 2024
+#
+#Version : v1
+#
+#This script will report the AWS resource usage
+#
+###################
+
+set -x
+#AWS S3
+#AWS EC2
+#AWS Lambda
+#AWS IAM Users
+#
+###################
+#
+#
+# List S3 Buckets
+echo "Print list of S3"
+aws s3 ls > resourceTracker
+
+# List EC2 Instances
+echo "Print list of EC2"
+aws ec2 describe-instances | jq ".Reservation[].Instances[].InstanceId" > resourceTracker
+
+# List AWS Lambda
+echo "Print list of Lambda"
+aws lambda list-functions > resourceTracker
+
+# List IAM Users
+echo "Print list of IAM"
+aws iam list-users > resourceTracker
