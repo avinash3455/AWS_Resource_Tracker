@@ -35,4 +35,4 @@ aws lambda list-functions > resourceTracker
 
 # List IAM Users
 echo "Print list of IAM"
-aws iam list-users > resourceTracker
+aws iam list-users > resourceTrackerr
